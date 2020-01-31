@@ -4,8 +4,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      amountDue: "400.33",
-      amountReceived: "100",
+      amountDue: "",
+      amountReceived: "",
       changeDue: "",
       twenties: "",
       tens: "",
@@ -30,51 +30,51 @@ class App extends Component {
     const amountDue = (this.state.amountDue);
     const amountReceived = (this.state.amountReceived);
     let changeDue = (amountReceived - amountDue);
-    console.log(changeDue)
+
 
     if (amountDue > amountReceived) {
       alert("danger you dont have enough money")
     } else {
 
-    this.setState({ changeDue: changeDue });
-    changeDue = (changeDue * 100)
+      this.setState({ changeDue: changeDue });
+      changeDue = (changeDue * 100)
 
-    const twenties = Math.floor(changeDue / 2000);
-    let remainder = changeDue - twenties * 2000;
-    this.setState({ twenties: twenties })
+      const twenties = Math.floor(changeDue / 2000);
+      let remainder = changeDue - twenties * 2000;
+      this.setState({ twenties: twenties })
 
-    const tens = Math.floor(remainder / 1000);
-    remainder = remainder - tens * 1000;
-    this.setState({ tens: tens })
+      const tens = Math.floor(remainder / 1000);
+      remainder = remainder - tens * 1000;
+      this.setState({ tens: tens })
 
-    const fives = Math.floor(remainder / 500);
-    remainder = remainder - fives * 500;
-    this.setState({ fives: fives })
+      const fives = Math.floor(remainder / 500);
+      remainder = remainder - fives * 500;
+      this.setState({ fives: fives })
 
-    const ones = Math.floor(remainder / 100);
-    remainder = remainder - ones * 100;
-    this.setState({ ones: ones })
+      const ones = Math.floor(remainder / 100);
+      remainder = remainder - ones * 100;
+      this.setState({ ones: ones })
 
-    const quarters = Math.floor(remainder / 25);
-    remainder = remainder - quarters * 25;
+      const quarters = Math.floor(remainder / 25);
+      remainder = remainder - quarters * 25;
 
-    this.setState({ quarters: quarters })
+      this.setState({ quarters: quarters })
 
-    const dimes = Math.floor(remainder / 10);
-    remainder = remainder - dimes * 10;
-    this.setState({ dimes: dimes })
+      const dimes = Math.floor(remainder / 10);
+      remainder = remainder - dimes * 10;
+      this.setState({ dimes: dimes })
 
-    const nickels = Math.floor(remainder / 5);
-    remainder = remainder - nickels * 5;
-    this.setState({ nickels: nickels })
+      const nickels = Math.floor(remainder / 5);
+      remainder = remainder - nickels * 5;
+      this.setState({ nickels: nickels })
 
-    const pennies = Math.round(remainder);
-    this.setState({ pennies: pennies })
+      const pennies = Math.round(remainder);
+      this.setState({ pennies: pennies })
 
     }
 
-    
-    
+
+
 
   }
 
@@ -84,7 +84,7 @@ class App extends Component {
       <div>
         <h1>Change Calculator</h1>
         <div className="form-group">
-          <label>How much is due?</label>
+          <h3>How much is due?</h3>
           <input type="number" name="amountDue" className="form-control" value={this.state.amountDue} onChange={this.updateState} />
         </div>
         <div className="form-group">
@@ -97,13 +97,6 @@ class App extends Component {
             <h3>the total change due is ${this.state.changeDue} </h3>
           </div>
         </div>
-        {/* <div className="alert alert-success alert-dismissible">
-          <button type="button" className="close" data-dismiss="alert">&times;</button>
-          <strong>Success!</strong> This alert box could indicate a successful or positive action.
-        <div className="alert alert-danger alert-dismissible">
-          <button type="button" className="close" data-dismiss="alert">&times;</button>
-          <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
-        </div> */}
         <div className="text-center" name="dollars">
           <div className="row">
             <div className="card">
